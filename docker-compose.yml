@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:latest
+    container_name: apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    depends_on:
+      - php
+    networks:
+      - app-network
+
+  php:
+    build: 
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: php
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: myapp
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf:ro
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=root_password
+    ports:
+      - "8080:80"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
