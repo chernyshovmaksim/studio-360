@@ -21,5 +21,6 @@
     <script defer src="/theme/dist/js/mobile-menu.js"></script>
     <script defer src="/theme/dist/js/cursor.js"></script>
     <script defer src="/theme/dist/js/map.js"></script>
+    <script defer src="/theme/dist/js/video_fix.js"></script>
     <script defer src="/theme/dist/js/app.js"></script>
 </head>

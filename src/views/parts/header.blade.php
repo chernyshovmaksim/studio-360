@@ -1,5 +1,5 @@
 <header>
-    <video autoplay muted loop playsinline preload="auto">
+    <video autoplay muted loop playsinline preload="auto" id="hero-video">
         <source media="(min-width: 501px)" src="/theme/media/video_full.mp4" type="video/mp4">
         <source media="(max-width: 500px)" src="/theme/media/video.mp4" type="video/mp4">
     </video>
