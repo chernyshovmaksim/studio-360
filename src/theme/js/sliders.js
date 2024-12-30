@@ -59,6 +59,33 @@ $(function () {
                 },
             ],
         },
+        maps: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+        },
+        cities: {
+            variableWidth: true,
+        },
+        projectsPage: {
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            autoplay: true,
+            speed: 1000,
+            autoplaySpeed: 2000,
+        },
+        productPageSlider: {
+            arrows: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            autoplay: true,
+            speed: 1000,
+            autoplaySpeed: 2000,
+        },
     };
 
     // Инициализация слайдеров
@@ -66,6 +93,10 @@ $(function () {
     $("#blog").slick(sliderConfig.blog);
     $("#projects").slick(sliderConfig.projects);
     $("#clients").slick(sliderConfig.clients);
+    $("#contacts-maps").slick(sliderConfig.maps);
+    $("#contacts-offices").slick(sliderConfig.cities);
+    $("#projects-slider").slick(sliderConfig.projectsPage);
+    $("#product-slider").slick(sliderConfig.productPageSlider);
     // Общая функция обработки прокрутки для слайдеров
     const handleSliderWheel = function (e) {
         e.preventDefault();
