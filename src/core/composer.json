@@ -63,7 +63,8 @@
     "evocms-services/document-manager": "1.*",
     "evolution-cms/salo": "1.*",
     "simplepie/simplepie": "1.*",
-    "pathologic/modxapi": "1.*"
+    "pathologic/modxapi": "1.*",
+    "nesbot/carbon": "^2.72"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master"

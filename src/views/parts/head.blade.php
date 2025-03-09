@@ -2,7 +2,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $documentObject['pagetitle'] }}</title>
+    <title>{{ evo()->getConfig('site_name') }}
+        @if ($documentObject['pagetitle'])
+            | {{ $documentObject['pagetitle'] }}
+        @endif
+    </title>
     <script src="/theme/js/preloader.js"></script>
 
 

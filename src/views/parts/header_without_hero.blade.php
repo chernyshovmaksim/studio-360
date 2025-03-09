@@ -13,7 +13,7 @@
                 <a href="/" class="header__link">Главная</a>
                 <a href="/projects" class="header__link">Проекты</a>
                 <a href="/blog" class="header__link">Публикации</a>
-                <a href="/" class="header__link">О компании</a>
+                {{-- <a href="/" class="header__link">О компании</a> --}}
                 <a href="/contacts" class="header__link">Контакты</a>
             </div>
         </div>

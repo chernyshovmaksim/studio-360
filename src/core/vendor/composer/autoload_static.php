@@ -16,7 +16,6 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
@@ -62,7 +61,6 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
             'Symfony\\Polyfill\\Php81\\' => 23,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php73\\' => 23,
-            'Symfony\\Polyfill\\Php72\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
             'Symfony\\Polyfill\\Intl\\Idn\\' => 26,
@@ -162,7 +160,9 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         array (
             'ExecWithFallback\\' => 17,
             'EvolutionCMS\\UserManager\\' => 25,
+            'EvolutionCMS\\Site\\' => 18,
             'EvolutionCMS\\Salo\\' => 18,
+            'EvolutionCMS\\Main\\' => 18,
             'EvolutionCMS\\DocumentManager\\' => 29,
             'EvolutionCMS\\' => 13,
             'Egulias\\EmailValidator\\' => 23,
@@ -221,10 +221,6 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Symfony\\Polyfill\\Php73\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php73',
-        ),
-        'Symfony\\Polyfill\\Php72\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -517,9 +513,17 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         array (
             0 => __DIR__ . '/..' . '/evocms-services/user-manager/src',
         ),
+        'EvolutionCMS\\Site\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/custom/packages/site/src',
+        ),
         'EvolutionCMS\\Salo\\' => 
         array (
             0 => __DIR__ . '/..' . '/evolution-cms/salo/src',
+        ),
+        'EvolutionCMS\\Main\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/custom/packages/main/src',
         ),
         'EvolutionCMS\\DocumentManager\\' => 
         array (
@@ -543,7 +547,7 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         ),
         'Doctrine\\Deprecations\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations',
+            0 => __DIR__ . '/..' . '/doctrine/deprecations/src',
         ),
         'Doctrine\\DBAL\\' => 
         array (
@@ -902,6 +906,7 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Composer\\Pcre\\PHPStan\\PregMatchFlags' => __DIR__ . '/..' . '/composer/pcre/src/PHPStan/PregMatchFlags.php',
         'Composer\\Pcre\\PHPStan\\PregMatchParameterOutTypeExtension' => __DIR__ . '/..' . '/composer/pcre/src/PHPStan/PregMatchParameterOutTypeExtension.php',
         'Composer\\Pcre\\PHPStan\\PregMatchTypeSpecifyingExtension' => __DIR__ . '/..' . '/composer/pcre/src/PHPStan/PregMatchTypeSpecifyingExtension.php',
+        'Composer\\Pcre\\PHPStan\\PregReplaceCallbackClosureTypeExtension' => __DIR__ . '/..' . '/composer/pcre/src/PHPStan/PregReplaceCallbackClosureTypeExtension.php',
         'Composer\\Pcre\\PHPStan\\UnsafeStrictGroupsCallRule' => __DIR__ . '/..' . '/composer/pcre/src/PHPStan/UnsafeStrictGroupsCallRule.php',
         'Composer\\Pcre\\PcreException' => __DIR__ . '/..' . '/composer/pcre/src/PcreException.php',
         'Composer\\Pcre\\Preg' => __DIR__ . '/..' . '/composer/pcre/src/Preg.php',
@@ -1347,8 +1352,8 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Doctrine\\DBAL\\Types\\VarDateTimeType' => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL/Types/VarDateTimeType.php',
         'Doctrine\\DBAL\\Version' => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL/Version.php',
         'Doctrine\\DBAL\\VersionAwarePlatformDriver' => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL/VersionAwarePlatformDriver.php',
-        'Doctrine\\Deprecations\\Deprecation' => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations/Deprecation.php',
-        'Doctrine\\Deprecations\\PHPUnit\\VerifyDeprecations' => __DIR__ . '/..' . '/doctrine/deprecations/lib/Doctrine/Deprecations/PHPUnit/VerifyDeprecations.php',
+        'Doctrine\\Deprecations\\Deprecation' => __DIR__ . '/..' . '/doctrine/deprecations/src/Deprecation.php',
+        'Doctrine\\Deprecations\\PHPUnit\\VerifyDeprecations' => __DIR__ . '/..' . '/doctrine/deprecations/src/PHPUnit/VerifyDeprecations.php',
         'Doctrine\\Inflector\\CachedWordInflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/CachedWordInflector.php',
         'Doctrine\\Inflector\\GenericLanguageInflectorFactory' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/GenericLanguageInflectorFactory.php',
         'Doctrine\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Inflector/Inflector.php',
@@ -1630,6 +1635,7 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'EvolutionCMS\\Legacy\\TemplateParser' => __DIR__ . '/../..' . '/src/Legacy/TemplateParser.php',
         'EvolutionCMS\\Legacy\\mgrResources' => __DIR__ . '/../..' . '/src/Legacy/mgrResources.php',
         'EvolutionCMS\\Mail' => __DIR__ . '/../..' . '/src/Mail.php',
+        'EvolutionCMS\\Main\\MainServiceProvider' => __DIR__ . '/../..' . '/custom/packages/main/src/MainServiceProvider.php',
         'EvolutionCMS\\ManagerTheme' => __DIR__ . '/../..' . '/src/ManagerTheme.php',
         'EvolutionCMS\\Middleware\\CheckAuthToken' => __DIR__ . '/../..' . '/src/Middleware/CheckAuthToken.php',
         'EvolutionCMS\\Middleware\\CheckManagerAuth' => __DIR__ . '/../..' . '/src/Middleware/CheckManagerAuth.php',
@@ -1712,6 +1718,9 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'EvolutionCMS\\Services\\AuthServices' => __DIR__ . '/../..' . '/src/Services/AuthServices.php',
         'EvolutionCMS\\Services\\ConfigService' => __DIR__ . '/../..' . '/src/Services/ConfigService.php',
         'EvolutionCMS\\Shit\\SoftDeletingScope' => __DIR__ . '/../..' . '/src/Shit/SoftDeletingScope.php',
+        'EvolutionCMS\\Site\\Controllers\\BaseController' => __DIR__ . '/../..' . '/custom/packages/site/src/Controllers/BaseController.php',
+        'EvolutionCMS\\Site\\Controllers\\ProductController' => __DIR__ . '/../..' . '/custom/packages/site/src/Controllers/ProductController.php',
+        'EvolutionCMS\\Site\\SiteServiceProvider' => __DIR__ . '/../..' . '/custom/packages/site/src/SiteServiceProvider.php',
         'EvolutionCMS\\Support\\BladeDirective' => __DIR__ . '/../..' . '/src/Support/BladeDirective.php',
         'EvolutionCMS\\Support\\Captcha' => __DIR__ . '/../..' . '/src/Support/Captcha.php',
         'EvolutionCMS\\Support\\ContextMenu' => __DIR__ . '/../..' . '/src/Support/ContextMenu.php',
@@ -2877,6 +2886,7 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Predis\\Command\\Argument\\Search\\SchemaFields\\AbstractField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/AbstractField.php',
         'Predis\\Command\\Argument\\Search\\SchemaFields\\FieldInterface' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/FieldInterface.php',
         'Predis\\Command\\Argument\\Search\\SchemaFields\\GeoField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/GeoField.php',
+        'Predis\\Command\\Argument\\Search\\SchemaFields\\GeoShapeField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/GeoShapeField.php',
         'Predis\\Command\\Argument\\Search\\SchemaFields\\NumericField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/NumericField.php',
         'Predis\\Command\\Argument\\Search\\SchemaFields\\TagField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/TagField.php',
         'Predis\\Command\\Argument\\Search\\SchemaFields\\TextField' => __DIR__ . '/..' . '/predis/predis/src/Command/Argument/Search/SchemaFields/TextField.php',
@@ -3008,6 +3018,9 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Predis\\Command\\Redis\\GETSET' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/GETSET.php',
         'Predis\\Command\\Redis\\HDEL' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HDEL.php',
         'Predis\\Command\\Redis\\HEXISTS' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HEXISTS.php',
+        'Predis\\Command\\Redis\\HEXPIRE' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HEXPIRE.php',
+        'Predis\\Command\\Redis\\HEXPIREAT' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HEXPIREAT.php',
+        'Predis\\Command\\Redis\\HEXPIRETIME' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HEXPIRETIME.php',
         'Predis\\Command\\Redis\\HGET' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HGET.php',
         'Predis\\Command\\Redis\\HGETALL' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HGETALL.php',
         'Predis\\Command\\Redis\\HINCRBY' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HINCRBY.php',
@@ -3016,11 +3029,17 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Predis\\Command\\Redis\\HLEN' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HLEN.php',
         'Predis\\Command\\Redis\\HMGET' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HMGET.php',
         'Predis\\Command\\Redis\\HMSET' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HMSET.php',
+        'Predis\\Command\\Redis\\HPERSIST' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HPERSIST.php',
+        'Predis\\Command\\Redis\\HPEXPIRE' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HPEXPIRE.php',
+        'Predis\\Command\\Redis\\HPEXPIREAT' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HPEXPIREAT.php',
+        'Predis\\Command\\Redis\\HPEXPIRETIME' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HPEXPIRETIME.php',
+        'Predis\\Command\\Redis\\HPTTL' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HPTTL.php',
         'Predis\\Command\\Redis\\HRANDFIELD' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HRANDFIELD.php',
         'Predis\\Command\\Redis\\HSCAN' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HSCAN.php',
         'Predis\\Command\\Redis\\HSET' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HSET.php',
         'Predis\\Command\\Redis\\HSETNX' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HSETNX.php',
         'Predis\\Command\\Redis\\HSTRLEN' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HSTRLEN.php',
+        'Predis\\Command\\Redis\\HTTL' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HTTL.php',
         'Predis\\Command\\Redis\\HVALS' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/HVALS.php',
         'Predis\\Command\\Redis\\INCR' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/INCR.php',
         'Predis\\Command\\Redis\\INCRBY' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/INCRBY.php',
@@ -3203,6 +3222,7 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Predis\\Command\\Redis\\XDEL' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XDEL.php',
         'Predis\\Command\\Redis\\XLEN' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XLEN.php',
         'Predis\\Command\\Redis\\XRANGE' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XRANGE.php',
+        'Predis\\Command\\Redis\\XREAD' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XREAD.php',
         'Predis\\Command\\Redis\\XREVRANGE' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XREVRANGE.php',
         'Predis\\Command\\Redis\\XTRIM' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/XTRIM.php',
         'Predis\\Command\\Redis\\ZADD' => __DIR__ . '/..' . '/predis/predis/src/Command/Redis/ZADD.php',
@@ -4241,7 +4261,6 @@ class ComposerStaticInit6064fde4f52f543f5d9514d30e5f77d6
         'Symfony\\Polyfill\\Intl\\Idn\\Resources\\unidata\\Regex' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/Resources/unidata/Regex.php',
         'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
         'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
-        'Symfony\\Polyfill\\Php72\\Php72' => __DIR__ . '/..' . '/symfony/polyfill-php72/Php72.php',
         'Symfony\\Polyfill\\Php73\\Php73' => __DIR__ . '/..' . '/symfony/polyfill-php73/Php73.php',
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',

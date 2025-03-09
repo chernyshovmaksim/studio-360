@@ -8,25 +8,29 @@ Object.defineProperty(HTMLMediaElement.prototype, "playing", {
         );
     },
 });
+if(document.getElementById("hero-video")){
 
-const videoElement = document.getElementById("hero-video");
-videoElement.addEventListener("suspend", () => {
-    // suspend invoked
-    // show play button
-});
-
-videoElement.addEventListener("play", () => {
-    // video is played
-    // remove play button UI
-});
-
-$("body").on("click touchstart", function () {
     const videoElement = document.getElementById("hero-video");
-    if (videoElement.playing) {
-        // video is already playing so do nothing
-    } else {
-        // video is not playing
-        // so play video now
-        videoElement.play();
-    }
-});
+    videoElement.addEventListener("suspend", () => {
+        // suspend invoked
+        // show play button
+    });
+    
+    videoElement.addEventListener("play", () => {
+        // video is played
+        // remove play button UI
+    });
+    
+    $("body").on("click touchstart", function () {
+        const videoElement = document.getElementById("hero-video");
+        if (videoElement.playing) {
+            // video is already playing so do nothing
+        } else {
+            // video is not playing
+            // so play video now
+            videoElement.play();
+        }
+    });
+
+}
+

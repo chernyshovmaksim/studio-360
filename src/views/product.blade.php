@@ -1,32 +1,28 @@
 @extends('layouts.main')
-
 @section('content')
     <section class="product-hero">
-        <img class="product-hero__image" srcset="/theme/media/images/projects/card-1.jpg" src="" sizes="" />
+        <img class="product-hero__image" srcset="/{{ $main_images['fhd'] }} 2x, /{{ $main_images['hd'] }}, 1x"
+            src="/{{ $main_images['fhd'] }}" />
         <div class="product-hero__overview"></div>
         <div class="container">
-            <a href="/" class="product-hero__link-callback">
+            <a href="/projects" class="product-hero__link-callback">
                 Все проекты
             </a>
 
             <div class="product-hero__categories">
-                <a href="/" class="product-hero__categories-item">
-                    Архитектура
-                </a>
-                <a href="/" class="product-hero__categories-item">
-                    BIM
-                </a>
-                <a href="/" class="product-hero__categories-item">
-                    Инженерия
-                </a>
+                @foreach ($tags as $tag)
+                    <a href="/tags/{{ $tag['id'] }}" class="product-hero__categories-item">
+                        {{ $tag['pagetitle'] }}
+                    </a>
+                @endforeach
             </div>
 
             <h1 class="product-hero__title">
-                Жилой комплекс «Бадаевский»
+                {{ $documentObject['pagetitle'] }}
             </h1>
 
             <div class="product-hero__date">
-                Ноябрь 2024
+                {{ $product_date_create }}
             </div>
         </div>
     </section>
@@ -36,62 +32,37 @@
             <div class="product-info__row">
                 <div class="product-info__col">
                     <div class="product-info__title">
-                        <h1>Многофункциональный жилой комплекс</h1>
+                        <h1>{{ $documentObject['longtitle'] }}</h1>
                     </div>
                     <div class="product-info__categories">
-                        <a href="/">Генеральное проектирование</a>
+                        @foreach ($tags as $tag)
+                            <a href="/tags/{{ $tag['id'] }}" class="product-hero__categories-item">
+                                {{ $tag['pagetitle'] }}
+                            </a>
+                        @endforeach
                     </div>
                     <div class="product-info__description">
-                        <p>
-                            Жилой комплекс с подземной автостоянкой LEVEL – проект из 4 корпусов, расположенный на первой
-                            береговой
-                            линии реки Москвы
-                        </p>
+                        {{ $documentObject['introtext'] }}
                     </div>
                     <div class="product-info__small-params">
-                        <div class="product-info__small-param">
-                            <div class="product-info__small-param-value">57 950 м²</div>
-                            <span class="product-info__small-param-title">Общая площадь</span>
-                        </div>
-                        <div class="product-info__small-param">
-                            <div class="product-info__small-param-value">90 м</div>
-                            <span class="product-info__small-param-title">Высотность</span>
-                        </div>
+                        @foreach ($product_main_params as $param)
+                            <div class="product-info__small-param">
+                                <div class="product-info__small-param-value">{{ $param['value'] }}</div>
+                                <span class="product-info__small-param-title">{{ $param['name'] }}</span>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="product-info__col">
                     <div class="product-info__params">
-                        <div class="product-info__param">
-                            <span class="product-info__param-title">Расположение</span>
-                            <div class="product-info__param-value">
-                                г. Москва, муниципальный округ Нагатино-Садовники,
-                                Нагатинская наб., земельный участок 10А
+                        @foreach ($product_other_params as $param)
+                            <div class="product-info__param">
+                                <span class="product-info__param-title">{{ $param['name'] }}</span>
+                                <div class="product-info__param-value">
+                                    {{ $param['value'] }}
+                                </div>
                             </div>
-                        </div>
-                        <div class="product-info__param">
-                            <span class="product-info__param-title">Статус</span>
-                            <div class="product-info__param-value">
-                                Завершен
-                            </div>
-                        </div>
-                        <div class="product-info__param">
-                            <span class="product-info__param-title">Публикация</span>
-                            <div class="product-info__param-value">
-                                -
-                            </div>
-                        </div>
-                        <div class="product-info__param">
-                            <span class="product-info__param-title">Степень участия</span>
-                            <div class="product-info__param-value">
-                                Генеральное проектирование
-                            </div>
-                        </div>
-                        <div class="product-info__param">
-                            <span class="product-info__param-title">Заказчик</span>
-                            <div class="product-info__param-value">
-                                -
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -99,60 +70,28 @@
         </div>
     </section>
 
-    <section class="product-slider">
-        <div class="container" id="product-slider">
-            <img class="product-slider__item" srcset="/theme/media/images/projects/1.png" alt="">
-            <img class="product-slider__item" srcset="/theme/media/images/projects/2.png" alt="">
-        </div>
-    </section>
+    @if (!@empty($pbcontent))
+        @foreach ($pbcontent as $block)
+            @if (View::exists('pagebuilder.' . $block['config']))
+                @if ($block['config'] == 'footer')
+                    @include('pagebuilder.' . $block['config'], [
+                        'block' => $block,
+                        'index' => $loop->index,
+                        'prevnextlinks' => $prevnextlinks,
+                    ])
+                @else
+                    @include('pagebuilder.' . $block['config'], [
+                        'block' => $block,
+                        'index' => $loop->index,
+                    ])
+                @endif
+            @else
+                <p style="color: brown;">View for config <b>{{ $block['config'] }}</b> not found</p>
+            @endif
+        @endforeach
+    @endif
 
-    <section class="blog-page">
-        <div class="container container--small">
-            <h3 class="blog-page__title">Архитектурно-планировочные решения</h3>
-            <div class="blog-page__text">
-                <p>
-                    4 корпуса проекта имеют разную этажность - от 26 до 27 этажей. Стилобат имеет два этажа.
-                    Кровля стилобата является благоустроенным внутренним двором.
-                </p>
-                <p>
-                    Надземная часть стилобата и первые этажи жилых корпусов заняты входными группами и коммерческими
-                    помещениями. Остальные надземные площади занимают жилые квартиры. В жилом комплексе представлено более
-                    40
-                    вариантов планировок, из них два - редкого формата.
-
-                </p>
-                <p>
-                    В подземной части стилобата расположена подземная автостоянка с техническими и служебными помещениями и
-                    кладовыми жильцов.
-                </p>
-            </div>
-        </div>
-    </section>
-
-
-    <div class="product-footer">
-        <div class="container container-full">
-            <div class="product-footer__image">
-                <img srcset="/theme/media/images/projects/footer.png" alt="">
-            </div>
-            <div class="product-footer__links">
-                <a href="/" class="product-footer__link product-footer__link--prev">
-                    <div>
-                        <span><img srcset="/theme/images/icons/prev.svg" alt=""></span>
-                        <span>Жилой комплекс «Бадаевский»</span>
-                    </div>
-                </a>
-                <a href="/" class="product-footer__link product-footer__link--next">
-                    <div>
-                        <span>СберСити в Рублево-Архангельском</span>
-                        <span><img srcset="/theme/images/icons/next.svg" alt=""></span>
-
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
+    {{-- 
 
     <section class="title">
         <div class="container">
@@ -289,5 +228,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 @endsection

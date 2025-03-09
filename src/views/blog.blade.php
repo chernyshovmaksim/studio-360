@@ -17,24 +17,17 @@
     <section class="filters">
         <div class="container">
             <div class="filters__group">
-                <button class="filter__btn filter__btn--active">
+                <a href="/blog" class="filter__btn filter__btn--active">
                     Все
-                </button>
-                <button class="filter__btn">
-                    Выступления
-                </button>
-                <button class="filter__btn">
-                    Интервью
-                </button>
-                <button class="filter__btn">
-                    Новости
-                </button>
-                <button class="filter__btn">
-                    Статьи
-                </button>
-                <button class="filter__btn">
-                    Научные публикации
-                </button>
+                </a>
+
+                @if (!empty($filters))
+                    @foreach ($filters as $item)
+                        <a href="/blog/tags/{{ $item['id'] }}" class="filter__btn">
+                            {{ $item['pagetitle'] }}
+                        </a>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>
@@ -42,214 +35,26 @@
     <section class="blog-page">
         <div class="container">
             <div class="blog-page__list">
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
+                @if (!empty($posts))
+                    @foreach ($posts as $item)
+                        <div class="blog-page__item">
+                            <a href="{{ $item['url'] }}" class="blog-page__item-link">
+                                <img src="/{{ $item['poster'] }}" alt="{{ $item['pagetitle'] }}"
+                                    class="blog-page__item-image" />
 
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
+                                <div class="blog-page__item-info-wrapper">
+                                    <a href="{{ $item['url'] }}" class="blog-page__item-info">
+                                        <div class="blog-page__item-title">
+                                            {{ $item['pagetitle'] }}
+                                        </div>
+                                        <div class="blog-page__item-date">{{ $item['date_pub'] }}</div>
+                                    </a>
                                 </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
+
                             </a>
                         </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
-                <div class="blog-page__item">
-                    <a href="/post" class="blog-page__item-link">
-                        <img src="/theme/media/images/blog/post-1.jpeg" alt="" class="blog-page__item-image" />
-
-                        <div class="blog-page__item-info-wrapper">
-                            <a href="/" class="blog-page__item-info">
-                                <div class="blog-page__item-title">
-                                    Фасады с рельефными элементами украсили ЖК в районе
-                                    Богородское
-                                </div>
-                                <div class="blog-page__item-date">Ноябрь 2024</div>
-                            </a>
-                        </div>
-
-                    </a>
-                </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

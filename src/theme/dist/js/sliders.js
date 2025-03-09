@@ -64,9 +64,11 @@ $(function () {
             slidesToScroll: 1,
             arrows: false,
             fade: true,
+            asNavFor: "#contacts-offices",
         },
         cities: {
             variableWidth: true,
+            asNavFor: "#contacts-maps",
         },
         projectsPage: {
             arrows: false,
@@ -96,7 +98,15 @@ $(function () {
     $("#contacts-maps").slick(sliderConfig.maps);
     $("#contacts-offices").slick(sliderConfig.cities);
     $("#projects-slider").slick(sliderConfig.projectsPage);
-    $("#product-slider").slick(sliderConfig.productPageSlider);
+
+
+    // $("#product-slider").slick(sliderConfig.productPageSlider);
+
+    $('[id*="product-slider-"]').each(function(){
+        $(this).slick(sliderConfig.productPageSlider);
+    })
+
+
     // Общая функция обработки прокрутки для слайдеров
     const handleSliderWheel = function (e) {
         e.preventDefault();

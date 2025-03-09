@@ -9,9 +9,9 @@
         <li class="mobile-menu__item">
             <a href="/blog" class="mobile-menu__link">Публикации</a>
         </li>
-        <li class="mobile-menu__item">
+        {{-- <li class="mobile-menu__item">
             <a href="/" class="mobile-menu__link">О компании</a>
-        </li>
+        </li> --}}
         <li class="mobile-menu__item">
             <a href="/contacts" class="mobile-menu__link">Контакты</a>
         </li>
