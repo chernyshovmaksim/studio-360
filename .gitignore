@@ -43,9 +43,6 @@
 !/assets/site/index.html
 !/assets/site/.htaccess
 
-# Core
-/core/.install
-
 # Manager
 # /manager/includes/config.inc.php
 /manager/media/style/default/css/styles.min.css
